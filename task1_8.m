@@ -1,0 +1,54 @@
+%
+%
+function task1_8(X, Ks)
+% Input:
+%  X  : M-by-D data matrix (double)
+%  Ks : 1-by-L vector (integer) of the numbers of nearest neighbours
+
+%     rng(4) % for reproducibility
+    [N, dim] = size(X);
+    for k=1:length(Ks)
+        centres=zeros(Ks(k), dim);
+
+        %for random initializing of centres
+%         centresIndeces = randi([1,N],Ks(k),1);
+%         centres=X(centresIndeces,:);
+%         size(centres)
+
+
+        %uniformally distributing centres depending on the size of the data
+       
+        portion_size = floor(N / Ks(k));
+        
+
+        for i=1:Ks(k)
+            centres(i,:) = X(portion_size*i,:);
+        end
+    
+        
+        %initialize multiple times and uses knn to vote
+        
+%         random initialisation, 
+%         fixed point initialisation
+%         mean point initialisation 
+% One example hypothesis is that you would like to investigate how different initial cluster centres result in different cluster centres in the handout,
+% 
+% you probably have to run fixed initialisation, random initialisation or any other initialisations.
+% 
+% Then for the random initialisation, you may have to think a way to reduce the randomness of the initialisation to support your conclusion (or statement) 
+        
+
+%         centres = X(1:Ks(k),:);
+% 
+% 
+% 
+%         [C, idx, SSE] = my_kMeansClustering(X, Ks(k), centres);
+% 
+%         save(strcat('task1_8_c_',num2str(Ks(k)),'.mat'),'C');
+%         save(strcat('task1_8_idx_',num2str(Ks(k)),'.mat'),'idx');
+%         save(strcat('task1_8_sse_',num2str(Ks(k)),'.mat'),'SSE');
+
+    end 
+
+
+end
